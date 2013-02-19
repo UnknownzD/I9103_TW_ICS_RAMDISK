@@ -1,8 +1,93 @@
-#
-# ADDITIONAL_DEFAULT_PROPERTIES
-#
-ro.secure=1
-ro.allowmock.location=0
-ro.debuggable=0
+ro.secure=0
+ro.allow.mock.location=0
+ro.debuggable=1
 persist.sys.usb.config=mtp
 keyguard.no_require_sim=true
+persist.service.adb.enable=1
+# Disabling camera sound
+ro.camera.sound.forced=0
+# Disable frequent scan of wifi channel to retain more electricity
+wifi.supplicant_scan_interval=180
+# Enable power collapse when idling (to retain electricity)
+pm.sleep_mode=1
+# Enable radio power collapse as well
+ro.ril.disable.power.collapse=0
+# Extend the 'Loss of Signal' alert to smooths out constant disconnects and reconnects and save the battery life
+ro.mot.eri.losalert.delay=1000
+# Choose to use the best network and best class for our device
+ro.ril.hsxpa=2
+ro.ril.gprsclass=45
+ro.ril.hsdpa.category=28
+ro.ril.hsupa.category=7
+# Enable dual channel mode for faster network speed if PS + CS is supported for simultaneous transfer
+# Set this to 1 if your network allows simultaneous transfer of Circuit switched (CS) voice and Packet switched (PS) data over the same radio channel (ARFCN)
+ro.ril.enable.dtm=1
+# Enable radio encryption for hsdpa / hsupa
+ro.ril.enable.a52=1
+ro.ril.enable.a53=1
+# Add a prefix to the network name if the phone is connected to a 3G network
+ro.ril.enable.3g.prefix=1
+# The following three properties are unknown buy yet not harmful to the system!
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.hep=1
+# Increasing the size of tcp buffer
+net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
+# Enable performance boost by using GPU acceleration
+debug.sf.hw=1
+# debug.performance.tuning=1
+video.accelerate.hw=1
+# debug.composition.type=gpu
+# Increase the events limit for windowsmgr for better performance
+windowsmgr.max_events_per_sec=150
+# Enable better image quality (for zoom in or out)
+persist.sys.use_dithering=1
+# Enable better jpeg quality (for both decoding and encoding)
+ro.media.enc.jpeg.quality=100
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.hprof.vid.bps=8000000
+# Enable bravia engine
+ro.service.swiqi.supported=true
+persist.service.swiqi.enable=1
+# Unlock the framerate as allow >60fps eglSwapBuffers
+debug.gr.swapinterval=0
+debug.egl.swapinterval=0
+# Decrease the delay for showing an incoming call
+ro.telephony.call_ring.delay=0
+# Decrease the proximity sensor delay so that proximity can work faster when using phone call
+ro.lge.proximity.delay=25
+mot.proximity.delay=25
+# Enabling / disable streaming on the following protocol
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-rtsp=true
+media.stagefright.enable-record=true
+# Enable purgeable assets to save space on RAM (or just for the system mmcblk?)
+persist.sys.purgeable_assets=1
+# Disable optin user stat submission
+ro.config.nocheckin=1
+# Disable to notification (logo) of adbd
+persist.adb.notify=0
+# Force home application (luncher) to stay in memory for better response (unsure about its effect yet)
+ro.HOME_APP_ADJ=1
+# Disable service iq
+service.iq.active=0
+# For faster boot, use hibernate mode instead of restart mode (however this can create problem as we need to wipe dalvik cache for every boot)
+# persist.sys.shutdown.mode=hibernate (don't enable it yet)
+# Following are all dalvik vm setting which is the best part to boost app performance
+# Enabling jit mode to boost the performance
+dalvik.vm.execution-mode=int:jit
+# Generated verified dalvik cache for all application including system application, for faster speed
+dalvik.vm.dexopt-flags=m=y,v=a,o=v
+# Disable checking in dalvik vm to further boost the performance
+dalvik.vm.checkjni=false
+# Set the dalvik vm heapsize to 64MB
+dalvik.vm.heapsize=64m
+# Set the USB connection as USB storage with adb enabled
+sys.usb.config=mass_storage,adb
