@@ -420,18 +420,6 @@ service fil-daemon /system/bin/fild -p /dev/ttyHS0 -s /dev/ttyACM0 -f /dev/ttyAC
     user radio
     group log
 
-# Unused in Android OS
-# Recovery daemon: configure MSC partition
-#service recoveryd /system/bin/recoveryd /dev/block/platform/sdhci-tegra.3/by-num/p5
-#    disabled
-#    class main
-#    user root
-#    group root
-#    oneshot
-
-#on property:sys.shutdown.requested=1recovery
-#    start recoveryd
-
 # test mode for RIL: Should probably be removed from production phones
 service ril-daemon-test /system/bin/rild
     socket rild-testmode stream 666 root radio
