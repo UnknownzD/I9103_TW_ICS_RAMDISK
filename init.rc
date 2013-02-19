@@ -191,17 +191,11 @@ on post-fs-data
     chown system system /data/anr
     chmod 0775 /data/log
     chmod 0775 /data/anr
-    
-
-#[ SEC_MM_DRM
-
-    # 아래 코드 4줄은 GB -> ICS 업그레이드 대상 모델만 반영해도 된다. ICS부터 시작하는 모델이라면 주석처리해도 무방.
-    # [ save OMA DB, when upgrading from GB to ICS    
+ 
     mkdir /data/system/databases 0771 system system
     copy /data/data/com.sec.android.providers.drm/databases/drmdatabase.db /data/system/databases/drmdatabase.db
     chown system system /data/system/databases/drmdatabase.db
     chmod 0774 /data/system/databases/drmdatabase.db	
-    # ]
     
     # DRM directory creation
     mkdir /system/etc/security/.drm 0775
@@ -232,7 +226,6 @@ on post-fs-data
     chmod 0775 /efs/.files/.dx1
     chmod 0775 /efs/.files/.dm33
     chmod 0775 /efs/.files/.mp301
-#]
 
     # If there is no fs-post-data action in the init.<device>.rc file, you
     # must uncomment this line, otherwise encrypted filesystems
@@ -517,13 +510,7 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 service drm /system/bin/drmserver
     class main
     user drm
-
-# [ SEC_MM_DRM
-# fix
     group system inet drmrpc sdcard_rw media_rw radio
-# org
-    #group system inet drmrpc
-# ]
 
 service media /system/bin/mediaserver
     class main
