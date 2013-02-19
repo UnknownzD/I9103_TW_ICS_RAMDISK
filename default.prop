@@ -35,11 +35,18 @@ ro.ril.htcmaskw1.bitmask=4294967295
 ro.ril.htcmaskw1=14449
 ro.ril.hep=1
 # Increasing the size of tcp buffer
-net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
-net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960
-net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960
-net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960
-net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
+# Define TCP buffer sizes for various networks
+#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+net.tcp.buffersize.default=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.wifi=524288,1048576,2097152,262144,524288,1048576
+net.tcp.buffersize.lte=524288,1048576,2560000,262144,524288,1048576
+net.tcp.buffersize.umts=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.hspa=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.hsdpa=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.hsupa=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.hspap=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.edge=4096,87380,704512,4096,16384,262144
+net.tcp.buffersize.gprs=4096,87380,704512,4096,16384,262144
 # Enable performance boost by using GPU acceleration
 debug.sf.hw=1
 # debug.performance.tuning=1
