@@ -406,6 +406,16 @@ on property:sys.usb.config=accessory,adb
 on property:persist.sys.usb.config=*
     setprop sys.usb.config $persist.sys.usb.config
 
+# Re-adding the property from GB to support the control of adbd service
+on property:persist.service.adb.enable=*
+    setprop service.adb.enable $persist.service.adb.enable
+
+on property:service.adb.enable=1
+    start adbd
+
+on property:service.adb.enable=0
+    stop adbd
+
 ## Daemon processes to be run by init.
 ##
 service ueventd /sbin/ueventd
