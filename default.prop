@@ -2,7 +2,9 @@
 ro.secure=1
 ro.allow.mock.location=0
 ro.debuggable=1
-persist.sys.usb.config=mtp
+# Set the USB connection as USB storage with adb enabled
+sys.usb.config=mass_storage,adb
+persist.sys.usb.config=mass_storage,adb
 keyguard.no_require_sim=true
 persist.service.adb.enable=1
 # Disabling camera sound
@@ -90,5 +92,3 @@ dalvik.vm.dexopt-flags=m=y,v=a,o=v
 dalvik.vm.checkjni=false
 # Set the dalvik vm heapsize to 64MB
 dalvik.vm.heapsize=64m
-# Set the USB connection as USB storage with adb enabled
-sys.usb.config=mass_storage,adb
