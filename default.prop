@@ -1,10 +1,11 @@
 ro.secure=0
+ro.kernel.qemu=0
 ro.allow.mock.location=0
 ro.debuggable=1
 # Set the USB connection as USB storage with adb enabled
-persist.sys.usb.config=mass_storage,adb
-sys.usb.config=mass_storage,adb
-sys.usb.state=mass_storage,adb
+#persist.sys.usb.config=mass_storage,adb
+#sys.usb.config=mass_storage,adb
+#sys.usb.state=mass_storage,adb
 keyguard.no_require_sim=true
 persist.service.adb.enable=1
 # Disabling camera sound
